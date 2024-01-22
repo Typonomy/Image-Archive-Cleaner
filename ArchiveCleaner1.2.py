@@ -143,6 +143,7 @@ class archiver:
 
 
     def keep(self,selection):  #This keeps the filename selected with the radio button.
+        self.delnum=1 
         if len(self.imagelist)>1:
             self.filetokeep=self.everymatch[selection]
             try:
@@ -159,6 +160,10 @@ class archiver:
                         self.thisindex=self.thisindex+1
                            #This just removes each match as it goes but keeps the first image.
                     except:
+                        self.itemchanged=self.prefixgetter(item)+str(self.delnum)+self.shortener(item)
+                        os.rename(item, self.itemchanged)
+                        shutil.move(self.itemchanged, self.folder2, copy_function=copy2)
+                        self.delnum=self.delnum+1
                         ("Error!")
         elif len(self.imagelist)==1:
             self.filetokeep=self.imagelist[0]
@@ -173,6 +178,7 @@ class archiver:
     
 
     def renamer(self, string):  #This is the input for the renamer function defined above.
+        self.delnum=1 
         self.name=string
         self.newlocation=self.destinationfolder+self.name
         if len(self.imagelist)>1:
@@ -185,7 +191,11 @@ class archiver:
                         shutil.move(item, self.duplicates, copy_function=copy2)
                         self.thisindex=self.thisindex+1                     
                     except:
-                        ("Error!")            
+                        self.itemchanged=self.prefixgetter(item)+str(self.delnum)+self.shortener(item)
+                        os.rename(item, self.itemchanged)
+                        shutil.move(self.itemchanged, self.folder2, copy_function=copy2)
+                        self.delnum=self.delnum+1
+                        ("Error!")          
             else:
                 pass
         elif len(self.imagelist)==1:
