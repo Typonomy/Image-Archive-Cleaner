@@ -125,10 +125,17 @@ class archiver:
         self.window2.mainloop() 
 
     def delete(self,list):   #Moves all copies to the "duplicates" destination folder (for manual deletion)
+        self.delnum=1        
         for item in list: 
-            shutil.move(item, self.duplicates, copy_function=copy2)
-               #This just removes each match as it goes but keeps the first image.
-            print("Deleted")
+            try:
+                shutil.move(item, self.folder2, copy_function=copy2)
+                   #This just removes each match as it goes but keeps the first image.
+                print("Deleted")
+            except:
+                self.itemchanged=self.prefixgetter(item)+str(self.delnum)+self.shortener(item)
+                os.rename(item, self.itemchanged)
+                shutil.move(self.itemchanged, self.folder2, copy_function=copy2)
+                self.delnum=self.delnum+1
         self.window1.destroy()
         if len(self.imagelist)>0:
             self.root.after(0, self.iter, self.imagelist)
