@@ -12,4 +12,4 @@ Requires installation of tkinter.  I see that I imported OpenCV but I don't know
 I might try and add a fancier gui in the next version that has normal inputs for the folders.
 
 
-1.2 - Fixed an error in the delete function that would throw an error if multiple files to be deleted had the same name.  It works now.  The keep function should be having the same problem, albeit less often, but it hasn't told me yet because it has an exception, so if it happens it's just moving along.  I'll test that later.
+1.2 - Fixed a problem in the delete function that would throw an error if multiple files to be deleted had the same name.  It works now.  The keep function should be having the same problem, albeit less often, but it hasn't told me yet because it has an exception, so if it happens it's just moving along.  I'll test that later.
