@@ -1,4 +1,7 @@
 # Image Archive Cleaner
+
+*****Update, the delete function doesn't work when it's multiple files with the same name in two other folders and you want to get rid of all of them.  I'm fixing it and it won't take long, but I'm also practicing documentation and so on so for now I'll write it here.
+
 This sorts through one or more folders of images, finds any files that match, and lets you decide 
 a) which filename to keep, b) whether to move the file with a new name, or c) whether to keep any at all.
 This is useful if you're moving downloads over from your phone or an old computer for example.
